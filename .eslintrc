@@ -1,0 +1,126 @@
+{
+  "root": true,
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "node": true,
+    "jest/globals": true
+  },
+  "extends": [
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react/recommended",
+    "plugin:jsx-a11y/recommended",
+    "plugin:jest/recommended",
+    "plugin:jest/style",
+    "plugin:json/recommended",
+    "plugin:prettier/recommended",
+    "plugin:chai-friendly/recommended",
+    "plugin:storybook/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 12,
+    "sourceType": "module",
+    "project": ["./tsconfig.json"]
+  },
+  "plugins": [
+    "react",
+    "jest",
+    "@typescript-eslint",
+    "react-hooks",
+    "jsx-a11y",
+    "chai-friendly",
+    "prettier",
+    "react-native"
+  ],
+  "ignorePatterns": [
+    ".*/*",
+    "expo-plugins/sentry-upload-fix.js",
+    "node_modules",
+    "web-build",
+    "android",
+    "ios",
+    "fastlane",
+    "appdata",
+    "assets",
+    "config",
+    "main.d.ts"
+  ],
+  "rules": {
+    "no-console": "warn",
+    "semi": "off",
+    "no-use-before-define": ["off"],
+    "react/display-name": [0],
+    "react/prop-types": 0,
+    "@typescript-eslint/ban-ts-comment": "off",
+    "no-shadow": "off",
+    "@typescript-eslint/no-shadow": ["error"],
+    "@typescript-eslint/explicit-member-accessibility": "off",
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/no-non-null-assertion": "off",
+    "@typescript-eslint/camelcase": "off",
+    "@typescript-eslint/array-type": "off",
+    "@typescript-eslint/no-object-literal-type-assertion": "off",
+    "@typescript-eslint/no-floating-promises": "error",
+    "@typescript-eslint/no-misused-promises": ["error", { "checksVoidReturn": false }],
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "off",
+    "no-empty-function": "off",
+    "@typescript-eslint/no-empty-function": ["off"],
+    "react/no-unescaped-entities": ["error", { "forbid": [">", "\"", "}"] }],
+    "react/react-in-jsx-scope": "off",
+    "indent": "off",
+    "curly": "error",
+    "eqeqeq": "error",
+    "no-eq-null": "error",
+    "jest/valid-title": [
+      "error",
+      {
+        "ignoreTypeOfDescribeName": true
+      }
+    ],
+    "jest/expect-expect": [
+      "warn",
+      {
+        "assertFunctionNames": ["expect", "cy.**.should"],
+        "additionalTestBlockFunctions": []
+      }
+    ],
+    "no-restricted-syntax": [
+      "error",
+      {
+        "selector": "ExportDefaultDeclaration",
+        "message": "Prefer named exports"
+      }
+    ],
+    "react-native/no-unused-styles": 0,
+    "react-native/split-platform-components": 0,
+    "react-native/no-inline-styles": 0,
+    "react-native/no-color-literals": 0,
+    "react-native/no-raw-text": [
+      "off",
+      {
+        "skip": [
+          "Paragraph",
+          "Headline",
+          "Caption",
+          "Subheading",
+          "HelperText",
+          "Snackbar",
+          "Button"
+        ]
+      }
+    ],
+    "react-native/no-single-element-style-arrays": 2
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  }
+}
