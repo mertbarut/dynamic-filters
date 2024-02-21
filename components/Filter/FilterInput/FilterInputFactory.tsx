@@ -8,9 +8,15 @@ type FilterInputFactoryProps = {
   label: FilterableWorkOrderAttribute;
   input: string | Date | undefined;
   setInput: (value: string | Date) => void;
+  saveFilter?: () => void;
 };
 
-export const FilterInputFactory = ({ label, setInput, input }: FilterInputFactoryProps) => {
+export const FilterInputFactory = ({
+  label,
+  setInput,
+  input,
+  saveFilter,
+}: FilterInputFactoryProps) => {
   const determineOutput = () => {
     if (!label) {
       return <></>;
@@ -19,18 +25,26 @@ export const FilterInputFactory = ({ label, setInput, input }: FilterInputFactor
     if (label === FilterableWorkOrderAttribute.StartDate) {
       return (
         <DateTimePicker
-          mode="datetime"
+          mode="date"
           value={(input as Date) ?? new Date()}
-          onChange={(e, date) => setInput(date as Date)}
+          onChange={(e, date) => {
+            setInput(date as Date);
+            saveFilter?.();
+          }}
+          negativeButton={{ label: '', textColor: 'red' }}
         />
       );
     }
     if (label === FilterableWorkOrderAttribute.EndDate) {
       return (
         <DateTimePicker
-          mode="datetime"
+          mode="date"
           value={(input as Date) ?? new Date()}
-          onChange={(e, date) => setInput(date as Date)}
+          onChange={(e, date) => {
+            setInput(date as Date);
+            saveFilter?.();
+          }}
+          negativeButton={{ label: '', textColor: 'red' }}
         />
       );
     }
